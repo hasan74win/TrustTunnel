@@ -7,7 +7,9 @@ use vpn_libs_endpoint::core::Core;
 use vpn_libs_endpoint::settings::Settings;
 use vpn_libs_endpoint::shutdown::Shutdown;
 
+const VERSION_STRING: &str = "0.9.13";
 
+const VERSION_PARAM_NAME: &str = "v_e_r_s_i_o_n_do_not_change_this_name_it_will_break";
 const LOG_LEVEL_PARAM_NAME: &str = "log_level";
 const LOG_FILE_PARAM_NAME: &str = "log_file";
 const CONFIG_PARAM_NAME: &str = "config";
@@ -17,6 +19,10 @@ const SENTRY_DSN_PARAM_NAME: &str = "sentry_dsn";
 fn main() {
     let args = clap::Command::new("VPN endpoint")
         .args(&[
+            clap::Arg::new(VERSION_PARAM_NAME)
+                .short('v')
+                .long("version")
+                .help("Print the version of this software and exit"),
             clap::Arg::new(LOG_LEVEL_PARAM_NAME)
                 .short('l')
                 .long("loglvl")
@@ -34,10 +40,16 @@ fn main() {
                 .help("Sentry DSN (see https://docs.sentry.io/product/sentry-basics/dsn-explainer/ for details)"),
             clap::Arg::new(CONFIG_PARAM_NAME)
                 .takes_value(true)
-                .required(true)
+                .required_unless_present(VERSION_PARAM_NAME)
                 .help("Path to a configuration file"),
         ])
+        .disable_version_flag(true)
         .get_matches();
+
+    if args.is_present(VERSION_PARAM_NAME) {
+        println!("{}", VERSION_STRING);
+        return;
+    }
 
     let _guard = args.value_of(SENTRY_DSN_PARAM_NAME)
         .map(|x| sentry::init((
