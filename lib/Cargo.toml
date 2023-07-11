@@ -30,7 +30,6 @@ once_cell = "=1.18.0"
 prometheus = { version = "=0.13.3", features = ["process"] }
 quiche = { version = "=0.17.2", features = ["qlog"] }
 ring = "=0.16.20"
-rust-crypto = "=0.2.36"
 rustls = { version = "=0.21.2", features = ["logging"] }
 rustls-pemfile = "=1.0.2"
 serde = "=1.0.164"

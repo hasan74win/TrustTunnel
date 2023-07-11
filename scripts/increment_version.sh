@@ -39,3 +39,26 @@ sed -i -e "3{
 /##/b
 s/^/## ${NEW_VERSION}\n\n/
 }" CHANGELOG.md
+
+# Update Cargo.lock
+python3 -c "
+with open('Cargo.lock', 'r', encoding='UTF-8') as file:
+    content = file.read()
+
+output = ''
+is_in_vpn_endpoint_section = False
+for line in content.splitlines():
+    if line == 'name = \"vpn_endpoint\"':
+        is_in_vpn_endpoint_section = True
+    elif is_in_vpn_endpoint_section:
+        is_in_vpn_endpoint_section = line != '[[package]]'
+
+    if is_in_vpn_endpoint_section and line == 'version = \"${VERSION}\"':
+        output += 'version = \"${NEW_VERSION}\"\n'
+        continue
+
+    output += line + '\n'
+
+with open('Cargo.lock', 'w') as file:
+    file.write(output)
+"
