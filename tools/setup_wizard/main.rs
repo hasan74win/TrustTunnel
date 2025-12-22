@@ -277,7 +277,7 @@ fn print_setup_complete_summary(
         lib_settings_path
     );
     println!(
-        "  • {}        - TLS host configuration",
+        "  • {}    - TLS host configuration",
         hosts_settings_path
     );
     println!(

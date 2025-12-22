@@ -44,10 +44,9 @@ pub fn build() -> TlsHostsSettingsResult {
 
 pub fn build_with_runtime() -> Option<Cert> {
     // Check for non-interactive mode with ACME parameters
-    let predefined = crate::get_predefined_params();
     if crate::get_mode() == Mode::NonInteractive {
         // Check if Let's Encrypt is requested via CLI
-        if let Some(ref cert_type) = predefined.cert_type {
+        if let Some(ref cert_type) = crate::get_predefined_params().cert_type {
             if cert_type == "letsencrypt" {
                 return generate_letsencrypt_cert_noninteractive();
             }
@@ -55,7 +54,6 @@ pub fn build_with_runtime() -> Option<Cert> {
         // Default to self-signed for non-interactive
         return generate_cert();
     }
-    drop(predefined);
 
     // Interactive mode
     lookup_existent_cert()
