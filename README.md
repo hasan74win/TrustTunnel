@@ -286,6 +286,7 @@ sudo ./trusttunnel_client -c trusttunnel_client.toml
 
 - [CONFIGURATION.md](CONFIGURATION.md) - Configuration documentation
 - [DEVELOPMENT.md](DEVELOPMENT.md) - Development documentation
+- [PROTOCOL.md](PROTOCOL.md) - Protocol specification
 - [CHANGELOG.md](CHANGELOG.md) - Changelog
 
 ## Roadmap

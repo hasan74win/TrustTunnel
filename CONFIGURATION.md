@@ -489,4 +489,5 @@ sudo journalctl -u trusttunnel -f
 
 - [README.md](README.md) - Quick start guide
 - [DEVELOPMENT.md](DEVELOPMENT.md) - Development documentation
+- [PROTOCOL.md](PROTOCOL.md) - Protocol specification
 - [CHANGELOG.md](CHANGELOG.md) - Changelog

@@ -90,3 +90,12 @@ cargo run --bin trusttunnel_endpoint -- <lib-settings> <hosts-settings>  # File 
 
 For additional details about the binary, refer to the [endpoint/README.md](./endpoint/README.md)
 file.
+
+---
+
+## See Also
+
+- [README.md](README.md) - Quick start guide
+- [PROTOCOL.md](PROTOCOL.md) - Protocol specification
+- [CONFIGURATION.md](CONFIGURATION.md) - Configuration documentation
+- [CHANGELOG.md](CHANGELOG.md) - Changelog
