@@ -56,6 +56,8 @@ and the [GUI application][trusttunnel-flutter-client].
 [adguard-vpn]: https://adguard-vpn.com
 [trusttunnel-client]: https://github.com/TrustTunnel/TrustTunnelClient
 [trusttunnel-flutter-client]: https://github.com/TrustTunnel/TrustTunnelFlutterClient
+[app-store]: https://agrd.io/ios_trusttunnel
+[play-store]: https://agrd.io/android_trusttunnel
 
 ## Server Features
 
@@ -276,7 +278,8 @@ Congratulations! You've done setting up the endpoint!
 #### Install the client
 
 You have a choice to use a [CLI client][trusttunnel-client] or a
-[GUI client][trusttunnel-flutter-client].
+[GUI client][trusttunnel-flutter-client] (available on [App Store][app-store]
+and [Play Store][play-store]).
 
 To install the CLI client, run the following command:
 
